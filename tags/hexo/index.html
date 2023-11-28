@@ -17,16 +17,16 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Hexo</title>
+  <title>标签: hexo | Hexo</title>
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://wuhongxing.github.io/index.html">
+<meta property="og:url" content="https://wuhongxing.github.io/tags/hexo/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="吴红星">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://wuhongxing.github.io/index.html">
+  <link rel="canonical" href="https://wuhongxing.github.io/tags/hexo/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -266,110 +266,50 @@
 
   
   <main class="main" role="main">
-  
-  
-    <div class="content">
-  <article id="post-hello-world" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article class="content article article-tags post-type-list" itemscope="">
+    <header class="article-header">
+      <h1 itemprop="name" class="hidden-xs">标签: hexo</h1>
+      <p class="text-muted hidden-xs">共 1 篇文章</p>
+      <nav role="navigation" id="nav-main" class="okayNav">
+        <ul>
+          <li><a href="/tags">All</a></li>
+          
+          <li><a href="/tags/hexo/">hexo</a></li>
+          
+        </ul>
+      </nav>
+    </header>
+    <!-- /header -->
+    <div class="article-body">
+      <div class="row">
+        
+<div class="col-md-6">
     
-    <div class="article-header">
-      
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/28/hello-world/">使用 Hexo 搭建博客</a>
-    </h1>
-  
-
-      
-      <div class="article-meta">
-        <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/11/28/hello-world/" class="article-date">
-	  <time datetime="2023-11-28T12:47:11.575Z" itemprop="datePublished">2023-11-28</time>
-	</a>
-</span>
-        
-        
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/hexo/" rel="tag">hexo</a>
-  </span>
-
-
-        
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/28/hello-world/#comments" class="article-comment-link">评论</a></span>
-        
-      </div>
-    </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      
-        <h2 id="前置准备"><a href="#前置准备" class="headerlink" title="前置准备"></a>前置准备</h2><p><code>node</code> 环境、<code>github</code> 账号</p>
-<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><ol>
-<li>安装 <code>hexo-cli</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li>
-<li>生成 <code>blog</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li>
-<li>部署<br>3.1 申请一个新的 git 仓库：<code>https://github.com/wuhongxing/wuhongxing.github.io</code><br>3.2 重写 <code>_config.yml</code> 中的 <code>deploy</code> 配置<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/wuhongxing/wuhongxing.github.io.git</span><br><span class="line">  branch: main</span><br><span class="line">  message: 初次提交</span><br></pre></td></tr></table></figure>
-3.3 安装插件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-3.4 执行 <code>yarn deploy</code> 即可<br>然后就可以打开 <code>wuhongxing.github.io</code> 就可以看见我们的博客了。</li>
-</ol>
-<h2 id="开始写作"><a href="#开始写作" class="headerlink" title="开始写作"></a>开始写作</h2><ol>
-<li>执行 <code>yarn server</code>，启动一个本地服务，打开页面后，保存更改的内容就能实时看到</li>
-<li>创建新的文章或者页面，可以使用下面的命令，也可以手动<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br><span class="line"># ex</span><br><span class="line">hexo new post &#x27;test&#x27;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="主题、插件"><a href="#主题、插件" class="headerlink" title="主题、插件"></a>主题、插件</h2><ol>
-<li>可以到 <code>https://hexo.io/themes/</code> 上面挑一个自己喜欢的</li>
-<li><code>git clone</code> 到 <code>theme</code> 文件夹中</li>
-<li>将 <code>_config.yml</code> 中的 <code>theme</code> 字段改为你刚才的主题名称</li>
-<li>最后执行 <code>yarn server</code> 就可以看到效果了</li>
-</ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7267982284007407677?searchId=2023112820282059DD9B8423AA3A81BABC#heading-23">零花费白嫖：免费利用Hexo和GitHub打造个人博客</a></li>
-<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/github-pages">官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/cofess/hexo-theme-pure">pure</a></li>
-</ol>
-
-      
-    </div>
-    <div class="article-footer">
-      <blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接：</strong>
-      <a href="https://wuhongxing.github.io/2023/11/28/hello-world/" title="使用 Hexo 搭建博客" target="_blank" rel="external">https://wuhongxing.github.io/2023/11/28/hello-world/</a>
-    </li>
-    
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-</blockquote>
-
-
-<div class="panel panel-default panel-badger">
+<article class="panel panel-default hover-shadow hover-grow" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="https://github.com/wuhongxing" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
-        </a>
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/wuhongxing" target="_blank"><span class="text-dark">吴红星</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
-        <div>个人简介。</div>
-      </div>
-    </figure>
-  </div>
+     <div class="article-meta">
+       <time datetime="2023-11-28T12:47:11.575Z" itemprop="datePublished">2023-11-28</time>
+     </div>
+     <h3 class="article-title" itemprop="name">
+       <a class="article-link" href="/2023/11/28/hello-world/">使用 Hexo 搭建博客</a>
+     </h3>
+   </div>
+   
+   <div class="panel-footer">
+     
+      <a href="/tags/hexo/" class="label label-default mb">hexo</a>
+     
+     
+   </div>
+   
+</article>
+
+
 </div>
 
-
+      </div>
     </div>
   </article>
-  
-</div>
-
-  
-
    
 </main>
 
@@ -421,10 +361,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-
-
-
-   
 
 
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="https://wuhongxing.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://wuhongxing.github.io/"/>
+  <updated>2023-11-28T14:50:07.884Z</updated>
+  <id>https://wuhongxing.github.io/</id>
+  
+  <author>
+    <name>吴红星</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用 Hexo 搭建博客</title>
+    <link href="https://wuhongxing.github.io/2023/11/28/hello-world/"/>
+    <id>https://wuhongxing.github.io/2023/11/28/hello-world/</id>
+    <published>2023-11-28T12:47:11.575Z</published>
+    <updated>2023-11-28T14:50:07.884Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前置准备"><a href="#前置准备" class="headerlink" title="前置准备"></a>前置准备</h2><p><code>node</code> 环境、<code>github</code> 账号</p><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><ol><li>安装 <code>hexo-cli</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></li><li>生成 <code>blog</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></li><li>部署<br>3.1 申请一个新的 git 仓库：<code>https://github.com/wuhongxing/wuhongxing.github.io</code><br>3.2 重写 <code>_config.yml</code> 中的 <code>deploy</code> 配置<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/wuhongxing/wuhongxing.github.io.git</span><br><span class="line">  branch: main</span><br><span class="line">  message: 初次提交</span><br></pre></td></tr></table></figure>3.3 安装插件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>3.4 执行 <code>yarn deploy</code> 即可<br>然后就可以打开 <code>wuhongxing.github.io</code> 就可以看见我们的博客了。</li></ol><h2 id="开始写作"><a href="#开始写作" class="headerlink" title="开始写作"></a>开始写作</h2><ol><li>执行 <code>yarn server</code>，启动一个本地服务，打开页面后，保存更改的内容就能实时看到</li><li>创建新的文章或者页面，可以使用下面的命令，也可以手动<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br><span class="line"># ex</span><br><span class="line">hexo new post &#x27;test&#x27;</span><br></pre></td></tr></table></figure></li></ol><h2 id="主题、插件"><a href="#主题、插件" class="headerlink" title="主题、插件"></a>主题、插件</h2><ol><li>可以到 <code>https://hexo.io/themes/</code> 上面挑一个自己喜欢的</li><li><code>git clone</code> 到 <code>theme</code> 文件夹中</li><li>将 <code>_config.yml</code> 中的 <code>theme</code> 字段改为你刚才的主题名称</li><li>最后执行 <code>yarn server</code> 就可以看到效果了</li></ol><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://juejin.cn/post/7267982284007407677?searchId=2023112820282059DD9B8423AA3A81BABC#heading-23">零花费白嫖：免费利用Hexo和GitHub打造个人博客</a></li><li><a href="https://hexo.io/zh-cn/docs/github-pages">官方文档</a></li><li><a href="https://github.com/cofess/hexo-theme-pure">pure</a></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;前置准备&quot;&gt;&lt;a href=&quot;#前置准备&quot; class=&quot;headerlink&quot; title=&quot;前置准备&quot;&gt;&lt;/a&gt;前置准备&lt;/h2&gt;&lt;p&gt;&lt;code&gt;node&lt;/code&gt; 环境、&lt;code&gt;github&lt;/code&gt; 账号&lt;/p&gt;
+&lt;h2 id=&quot;开始&quot;&gt;&lt;a</summary>
+      
+    
+    
+    
+    
+    <category term="hexo" scheme="https://wuhongxing.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
