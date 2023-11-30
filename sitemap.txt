@@ -2,4 +2,4 @@ https://wuhongxing.github.io/2023/11/30/template-engine/
 https://wuhongxing.github.io/2023/11/28/build-blog-with-hexo/
 https://wuhongxing.github.io/
 https://wuhongxing.github.io/tags/hexo/
-https://wuhongxing.github.io/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-mini-ejs/
+https://wuhongxing.github.io/tags/mini/
