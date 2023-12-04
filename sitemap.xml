@@ -4,7 +4,7 @@
   <url>
     <loc>https://wuhongxing.github.io/2023/12/03/mini-promise/</loc>
     
-    <lastmod>2023-12-03</lastmod>
+    <lastmod>2023-12-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -31,29 +31,29 @@
 
   <url>
     <loc>https://wuhongxing.github.io/</loc>
-    <lastmod>2023-12-03</lastmod>
+    <lastmod>2023-12-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://wuhongxing.github.io/tags/hexo/</loc>
-    <lastmod>2023-12-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://wuhongxing.github.io/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/</loc>
-    <lastmod>2023-12-03</lastmod>
+    <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wuhongxing.github.io/tags/promise/</loc>
-    <lastmod>2023-12-03</lastmod>
+    <lastmod>2023-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wuhongxing.github.io/tags/hexo/</loc>
+    <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -62,7 +62,7 @@
   
   <url>
     <loc>https://wuhongxing.github.io/categories/mini/</loc>
-    <lastmod>2023-12-03</lastmod>
+    <lastmod>2023-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
