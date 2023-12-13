@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>clean code | Hexo</title>
+  <meta name="description" content="前言通常我们学习都是从一门语言开始，但是一旦脱离对应的语言及平台，我们所学的知识可能没有任何用武之地。 而 clean code 是一个通用的技术，除了需要极少量的语言特性。而且这种越底层越通用的技术学会了，能够极大的提升内功，日常迭代过程中的增强我们代码的可维护性，可以帮助我们可以毫不费力的就可以写出质量非常高的代码。 而我们日常做 code review 时，这个也会是一个很大的指导原则。 怎">
+<meta property="og:type" content="article">
+<meta property="og:title" content="clean code">
+<meta property="og:url" content="https://wuhongxing.github.io/2023/11/30/clean-code/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言通常我们学习都是从一门语言开始，但是一旦脱离对应的语言及平台，我们所学的知识可能没有任何用武之地。 而 clean code 是一个通用的技术，除了需要极少量的语言特性。而且这种越底层越通用的技术学会了，能够极大的提升内功，日常迭代过程中的增强我们代码的可维护性，可以帮助我们可以毫不费力的就可以写出质量非常高的代码。 而我们日常做 code review 时，这个也会是一个很大的指导原则。 怎">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-29T22:51:06.000Z">
+<meta property="article:modified_time" content="2023-12-13T14:03:14.950Z">
+<meta property="article:author" content="吴红星">
+<meta property="article:tag" content="clean code">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://wuhongxing.github.io/2023/11/30/clean-code/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/wuhongxing" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">吴红星</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shanghai, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wuhongxing" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/mini/">mini</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/clean-code/" rel="tag">clean code</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/promise/" rel="tag">promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" rel="tag">模板引擎</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/clean-code/" style="font-size: 13px;">clean code</a> <a href="/tags/hexo/" style="font-size: 13px;">hexo</a> <a href="/tags/promise/" style="font-size: 13px;">promise</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" style="font-size: 13px;">模板引擎</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/mini/">mini</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/12/03/mini-promise/" class="title">mini-promise</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-12-03T08:57:11.951Z" itemprop="datePublished">2023-12-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/11/30/clean-code/" class="title">clean code</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-11-29T22:51:06.000Z" itemprop="datePublished">2023-11-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/mini/">mini</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/11/30/template-engine/" class="title">模板引擎</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-11-29T22:51:06.000Z" itemprop="datePublished">2023-11-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2023/11/28/build-blog-with-hexo/" class="title">使用 Hexo 搭建博客</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-11-28T12:47:11.575Z" itemprop="datePublished">2023-11-28</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-clean-code" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      clean code
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2023/11/30/clean-code/" class="article-date">
+	  <time datetime="2023-11-29T22:51:06.000Z" itemprop="datePublished">2023-11-30</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/clean-code/" rel="tag">clean code</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/30/clean-code/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>通常我们学习都是从一门语言开始，但是一旦脱离对应的语言及平台，我们所学的知识可能没有任何用武之地。</p>
+<p>而 <code>clean code</code> 是一个通用的技术，除了需要极少量的语言特性。而且这种越底层越通用的技术学会了，能够极大的提升内功，日常迭代过程中的增强我们代码的可维护性，可以帮助我们可以毫不费力的就可以写出质量非常高的代码。</p>
+<p>而我们日常做 <code>code review</code> 时，这个也会是一个很大的指导原则。</p>
+<h2 id="怎么做？"><a href="#怎么做？" class="headerlink" title="怎么做？"></a>怎么做？</h2><ol>
+<li>命名有意义（参数、方法名、常&#x2F;变量名）</li>
+<li>尽量短 (类、函数名、函数体、参数)</li>
+<li>dry (意图、结构、代码)</li>
+<li>保持一致性</li>
+</ol>
+<h3 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h3><ol>
+<li>精准命名</li>
+<li>不能过于宽泛</li>
+<li>应该描述意图，而非细节</li>
+<li>不要用技术术语命名</li>
+<li>用业务语言写代码，建议团队的语汇库</li>
+<li>常量、变量、类、字面量命名应该使用名词， 函数命名应该使用动词<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 精准命名</span></span><br><span class="line"><span class="title function_">processChapter</span>(id) =&gt; <span class="title function_">changeChapterToTranslating</span>(id) =&gt; <span class="title function_">startTranslation</span>(id)</span><br><span class="line"></span><br><span class="line">yyyymmdd =&gt; currentDate</span><br><span class="line"></span><br><span class="line">yyyymmddhhmmss =&gt; currentTime</span><br><span class="line"></span><br><span class="line"><span class="number">86400000</span> =&gt; <span class="variable constant_">MILLISECONDS_PER_DAY</span></span><br><span class="line"></span><br><span class="line">[_, city, zipCode] = address.<span class="title function_">match</span>(cityZipCodeRegex) || []</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不要用技术术语命名</span></span><br><span class="line">bookList / <span class="function"><span class="params">bookArray</span> =&gt;</span> books</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ol>
+<li>不能有意图重复，只要意图不重复哪怕一模一样也是可以接受的</li>
+<li>参数小于等于2个</li>
+<li>函数行数小于20行</li>
+<li>保证可测试性<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">verifyUsername</span>() / <span class="title function_">verifyPassword</span>()</span><br><span class="line"></span><br><span class="line"><span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>, &#123;...props&#125;)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ol>
+<li>remove flag argument</li>
+<li>动静分离，如果一个参数他们的字段变化频率并不一致时，考虑拆分他们到不同的对象中</li>
+<li>聚沙成塔：如果参数很多时，应该封装成对象。如果些对象还具有某些行为，封装成类<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">createFile</span>(isTemp) =&gt; <span class="title function_">createFile</span>() + <span class="title function_">createTempFile</span>()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><ol>
+<li>职责单一、尽量小（字段少、参数少）</li>
+<li>字段分组 - 和参数的动静分离对应</li>
+</ol>
+<h3 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h3><ol>
+<li>卫语句: 提前 <code>return</code></li>
+<li>判断条件<strong>重复时</strong>可以状态模式&#x2F;策略模式(可以使用表单法来构造) - 开闭原则的体现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (xxx) &#123;</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">=&gt;</span><br><span class="line"><span class="keyword">if</span> (xxx) <span class="keyword">return</span> xxx</span><br><span class="line"><span class="keyword">return</span> xxx</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">getPrice</span>(<span class="params">type</span>) &#123;</span><br><span class="line">  <span class="keyword">switch</span>(type) &#123;</span><br><span class="line">    <span class="keyword">case</span> .<span class="property">type1</span>: <span class="keyword">return</span> price * <span class="number">0.8</span></span><br><span class="line">    <span class="keyword">case</span> .<span class="property">type2</span>: <span class="keyword">return</span> price * <span class="number">0.7</span></span><br><span class="line">    <span class="keyword">case</span> .<span class="property">type3</span>: <span class="keyword">return</span> price * <span class="number">0.6</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getEpubPrice</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">switch</span>(type) &#123;</span><br><span class="line">    <span class="keyword">case</span> .<span class="property">type1</span>: <span class="keyword">return</span> price * <span class="number">0.85</span></span><br><span class="line">    <span class="keyword">case</span> .<span class="property">type2</span>: <span class="keyword">return</span> price * <span class="number">0.75</span></span><br><span class="line">    <span class="keyword">case</span> .<span class="property">type3</span>: <span class="keyword">return</span> price * <span class="number">0.65</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">=&gt;</span><br><span class="line">interface <span class="title class_">Type</span> &#123;</span><br><span class="line">  <span class="title function_">getPrice</span>()</span><br><span class="line">  <span class="title function_">getEpubPrice</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Type1</span> implements <span class="title class_">Type</span> &#123;</span><br><span class="line">  <span class="title function_">getPrice</span>()</span><br><span class="line">  <span class="title function_">getEpubPrice</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Type2</span> implements <span class="title class_">Type</span> &#123;</span><br><span class="line">  <span class="title function_">getPrice</span>()</span><br><span class="line">  <span class="title function_">getEpubPrice</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Type3</span> implements <span class="title class_">Type</span> &#123;</span><br><span class="line">  <span class="title function_">getPrice</span>()</span><br><span class="line">  <span class="title function_">getEpubPrice</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span>(type) &#123;</span><br><span class="line">  <span class="keyword">case</span> .<span class="property">type1</span>: <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Type1</span>()</span><br><span class="line">  <span class="keyword">case</span> .<span class="property">type2</span>: <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Type2</span>()</span><br><span class="line">  <span class="keyword">case</span> .<span class="property">type3</span>: <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Type3</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 或者使用表单法</span></span><br><span class="line">&#123;<span class="attr">type1</span>: <span class="keyword">new</span> <span class="title class_">Type1</span>(), <span class="attr">type2</span>: <span class="keyword">new</span> <span class="title class_">Type2</span>(), <span class="attr">type3</span>: <span class="keyword">new</span> <span class="title class_">Type3</span>()&#125;[type]</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getPrice</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> type.<span class="title function_">getPrice</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getEpubPrice</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> type.<span class="title function_">getEpubPrice</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><ol>
+<li>避免火车残骸代码（迪米特法则&#x2F;最少知道原则的体现）</li>
+<li>基本类型偏执（这个可以使用 <code>ts</code> 解决）</li>
+<li>一次性完成变量的初始化</li>
+<li>增加防腐层，主要在于判断是不是有可能被替换。比如我完成一些功能后将其发送到钉钉，但是这个完全可能被替换，那么这个时候，我们是不能在业务直接调用，而应该增加防腐层。（依赖倒置原则的体现 - 高层不应该依赖低层，二者都应该依赖抽象。抽象不依赖于细节，细节应该依赖于抽象。）</li>
+</ol>
+<p>格外说一点，就是这个具体的实例到底是在哪个类去初始化，是需要根据具体情况去判断的。比如这个 <code>FailureService</code> 如果不同的业务是不同的，那么就要放到外部去初始化，而如果 <code>FailureService</code> 是相同的，只是后期有可能集体替换，那么则需要放到 <code>Test</code> 初始化，以防陷入霰弹式修改的错误。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">a.<span class="property">b</span>.<span class="property">c</span>.<span class="property">d</span> =&gt; a.<span class="property">bb</span></span><br><span class="line"></span><br><span class="line">number =&gt; type <span class="title class_">Money</span> = number</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> value = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">if</span> (xxx) value = xxx</span><br><span class="line"><span class="keyword">else</span> value = <span class="function"><span class="params">xxx</span></span></span><br><span class="line"><span class="function">=&gt;</span></span><br><span class="line"><span class="title function_">getValue</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (xxx) <span class="keyword">return</span> xxx</span><br><span class="line">  <span class="keyword">return</span> xxx</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">  feishuService</span><br><span class="line">  <span class="title function_">sendBook</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;&#125; <span class="keyword">catch</span>(error) &#123;</span><br><span class="line">      feishuService.<span class="title function_">send</span>(error)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">=&gt;</span><br><span class="line">interface <span class="title class_">FailureService</span> &#123;</span><br><span class="line">  <span class="title function_">send</span>(error)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FeishuService</span> implements <span class="title class_">FailureService</span> &#123;&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">  <span class="attr">failureService</span>: <span class="title class_">FailureService</span></span><br><span class="line">  <span class="title function_">sendBook</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;&#125; <span class="keyword">catch</span>(error) &#123;</span><br><span class="line">      failureService.<span class="title function_">send</span>(error)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/ryanmcdermott/clean-code-javascript">clean-code-javascript</a></li>
+<li>极客时间《代码之丑》</li>
+</ol>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://wuhongxing.github.io/2023/11/30/clean-code/" title="clean code" target="_blank" rel="external">https://wuhongxing.github.io/2023/11/30/clean-code/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/wuhongxing" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/wuhongxing" target="_blank"><span class="text-dark">吴红星</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2023/12/03/mini-promise/" title="mini-promise"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2023/11/30/template-engine/" title="模板引擎"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/wuhongxing" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
