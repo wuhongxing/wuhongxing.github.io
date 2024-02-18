@@ -4,7 +4,7 @@
   <url>
     <loc>https://wuhongxing.github.io/2023/12/15/type-challenges/</loc>
     
-    <lastmod>2024-02-08</lastmod>
+    <lastmod>2024-02-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -58,50 +58,50 @@
 
   <url>
     <loc>https://wuhongxing.github.io/</loc>
-    <lastmod>2024-02-08</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://wuhongxing.github.io/tags/solid/</loc>
-    <lastmod>2024-02-08</lastmod>
+    <loc>https://wuhongxing.github.io/tags/clean-code/</loc>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wuhongxing.github.io/tags/hexo/</loc>
-    <lastmod>2024-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wuhongxing.github.io/tags/promise/</loc>
-    <lastmod>2024-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wuhongxing.github.io/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/</loc>
-    <lastmod>2024-02-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://wuhongxing.github.io/tags/clean-code/</loc>
-    <lastmod>2024-02-08</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wuhongxing.github.io/tags/typescript/</loc>
-    <lastmod>2024-02-08</lastmod>
+    <lastmod>2024-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wuhongxing.github.io/tags/promise/</loc>
+    <lastmod>2024-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wuhongxing.github.io/tags/solid/</loc>
+    <lastmod>2024-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wuhongxing.github.io/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/</loc>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -110,14 +110,14 @@
   
   <url>
     <loc>https://wuhongxing.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2024-02-08</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wuhongxing.github.io/categories/mini/</loc>
-    <lastmod>2024-02-08</lastmod>
+    <lastmod>2024-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
